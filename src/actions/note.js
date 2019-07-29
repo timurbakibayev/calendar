@@ -1,8 +1,6 @@
 import * as actionTypes from '../actionTypes';
 import * as api from '../api/noteApi';
 
-//TODO: If one note is loaded, it skips loading notes :(
-
 export const refreshNote = (noteId) => async (dispatch, getState) => {
     if (getState().note.isLoading) {
         return Promise.resolve();
