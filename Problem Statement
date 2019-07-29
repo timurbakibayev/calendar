@@ -1,0 +1,18 @@
+Technical requirements
+Ability to add a new “reminder” (max 30 chars) for a user entered day and time.
+Display reminders on the calendar view in the correct time order.
+Ability to edit reminders – including changing text, day and time & colour.
+Ability to delete reminders.
+Calendar should be responsive.
+Use a CSS preprocessor like LESS
+Provide a readme with an instruction how to install your application
+You should you React + redux.
+
+Bonus (optional)
+Writing unit tests for the available features will be considered as a big plus (Jest, Enzyme).
+Find a nice way to handle the displaying of the reminders, when multiple appear on the same date.
+Allow the user to select a colour when creating a reminder and display it appropriately.
+Prev / Next month (or day) functionality
+Use date-fns for dates or other simple library (avoid using moment.js).
+Drag&drop ability to sort reminders.
+Using react hooks.
