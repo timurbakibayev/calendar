@@ -1,7 +1,24 @@
 import {combineReducers} from 'redux';
 import * as actions from '../actionTypes';
 
-const notesListReducer = (state = [], action) => {
+const defaultNotes = [
+        {
+            "id": 232032,
+            "description": "note1",
+            "date": "20190730",
+            "time": "12:30:00",
+            "color": "red",
+        },
+        {
+            "id": 3214135,
+            "description": "note2",
+            "date": "20190801",
+            "time": "10:15:00",
+            "color": "green",
+        },
+    ];
+
+const notesListReducer = (state = defaultNotes, action) => {
     switch (action.type) {
         case actions.ACTION_NOTES_LOADED:
             return action.data;
