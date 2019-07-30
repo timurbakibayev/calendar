@@ -69,8 +69,10 @@ class _WeekComponent extends Component {
                     <DialogTitle id="form-dialog-title">Add Note</DialogTitle>
                     <DialogContent onKeyUp={(e) => {
                         if (e.keyCode === 13) {
-                            this.props.addNote(this.state);
-                            this.setState({open: false});
+                            if (this.state.description.length > 0) {
+                                this.props.addNote(this.state);
+                                this.setState({open: false});
+                            }
                         }
                     }}>
                         <DialogContentText>
