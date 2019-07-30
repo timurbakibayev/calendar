@@ -5,11 +5,15 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';import SomeIcon from 'material-ui-icons/DateRange';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import SomeIcon from 'material-ui-icons/DateRange';
 import './../general.css'
 import Note from "./Note";
 import * as actionsNote from "../actions/note";
 import {connect} from "react-redux";
+import descriptions from "../descriptions";
+import colors from "../colors";
+import times from "../times";
 
 class _WeekComponent extends Component {
 
@@ -41,14 +45,16 @@ class _WeekComponent extends Component {
                     <div className="Day" key={day.id} onClick={(e) => {
                         e.stopPropagation();
                         if (this.state.open === false) {
-                            this.setState({
-                                open: true,
-                                description: "",
-                                id: Math.floor(Math.random() * 10000),
-                                time: "10:00",
-                                date: day.date.replace("-","").replace("-",""),
-                                color: "green",
-                            });
+                            if (day.date !== undefined) {
+                                this.setState({
+                                    open: true,
+                                    description: "",
+                                    id: Math.floor(Math.random() * 10000),
+                                    time: "10:00",
+                                    date: day.date.replace("-", "").replace("-", ""),
+                                    color: "green",
+                                });
+                            }
                         }
                     }}>
                         <span className="DayNumber">{day.date === today && <SomeIcon color="green"/>}{day.day}</span>
@@ -61,7 +67,7 @@ class _WeekComponent extends Component {
                 <Dialog open={this.state.open} onClose={this.handleClose.bind(this)}
                         aria-labelledby="form-dialog-title">
                     <DialogTitle id="form-dialog-title">Add Note</DialogTitle>
-                    <DialogContent onKeyUp={(e)=> {
+                    <DialogContent onKeyUp={(e) => {
                         if (e.keyCode === 13) {
                             this.props.addNote(this.state);
                             this.setState({open: false});
@@ -112,6 +118,15 @@ class _WeekComponent extends Component {
                             Cancel
                         </Button>
                         <Button onClick={() => {
+                            this.setState({
+                                "description": descriptions[Math.floor(Math.random() * descriptions.length)],
+                                "time": times[Math.floor(Math.random() * times.length)],
+                                "color": colors[Math.floor(Math.random() * colors.length)],
+                            });
+                        }} color="primary">
+                            Random
+                        </Button>
+                        <Button disabled={this.state.description === undefined || this.state.description.length === 0} onClick={() => {
                             this.props.addNote(this.state);
                             this.setState({open: false});
                         }} color="primary">
