@@ -1,36 +1,6 @@
 import {combineReducers} from 'redux';
 import * as actions from '../actionTypes';
-
-const defaultNotes = [
-        {
-            "id": 232032,
-            "description": "note1",
-            "date": "20190730",
-            "time": "12:30",
-            "color": "red",
-        },
-        {
-            "id": 3214135,
-            "description": "This is in the morning",
-            "date": "20190801",
-            "time": "10:15",
-            "color": "green",
-        },
-        {
-            "id": 3214432,
-            "description": "This is in the evening",
-            "date": "20190801",
-            "time": "22:30",
-            "color": "green",
-        },
-        {
-            "id": 32141431,
-            "description": "This is after lunch",
-            "date": "20190801",
-            "time": "15:00",
-            "color": "blue",
-        },
-    ];
+import defaultNotes from '../defaultNotes';
 
 const notesListReducer = (state = defaultNotes, action) => {
     switch (action.type) {

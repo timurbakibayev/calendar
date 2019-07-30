@@ -51,7 +51,7 @@ class _WeekComponent extends Component {
                             });
                         }
                     }}>
-                        <span className="DayNumber">{day.date === today && <SomeIcon/>}{day.day}</span>
+                        <span className="DayNumber">{day.date === today && <SomeIcon color="green"/>}{day.day}</span>
                         <div className="Notes">
                             {day.notes.map(this.renderNote.bind(this))}
                         </div>
