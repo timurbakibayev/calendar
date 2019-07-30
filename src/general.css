@@ -2,9 +2,91 @@
     height: 100%
 }
 
+.Container {
+
+}
+
 .NoteCard {
-    margin: 0.5em;
+    margin: 5px;
     zoom: 0.8;
     display: flex;
     flex-direction: row;
+    font-size: 0.8em;
+}
+
+.NoteCircle {
+    border-radius: 50%;
+    width: 0.8em;
+    height: 0.8em;
+    margin-top: 0.2em;
+    /*margin: auto;*/
+}
+
+.NoteTime {
+    flex: 0.25;
+    text-align: left;
+    margin-left: 5px;
+    /*margin-right: 10px;*/
+}
+
+.NoteDescription {
+    flex: 0.75;
+    text-align: left;
+}
+
+.Month {
+    margin: auto;
+    max-width: 1024px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.Week {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+.SelectionRow {
+    margin: auto;
+    max-width: 300px;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.MonthName {
+    display: block;
+    margin: auto;
+    background-color: #61dafb;
+    border-radius: 10px;
+    width: 200px;
+}
+
+.WeekHeader {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    color: gray;
+}
+
+.Day {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-style: groove;
+    border-width: 1px;
+}
+
+.Notes {
+    height: 100px;
+    /*max-height: 150px;*/
+    overflow-y: auto;
+}
+
+.DayNumber {
+    margin: 5px;
+    font-size: 24px;
+    text-align: right;
 }

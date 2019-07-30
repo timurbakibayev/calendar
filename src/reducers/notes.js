@@ -11,10 +11,24 @@ const defaultNotes = [
         },
         {
             "id": 3214135,
-            "description": "note2",
+            "description": "This is in the morning",
             "date": "20190801",
             "time": "10:15:00",
             "color": "green",
+        },
+        {
+            "id": 3214432,
+            "description": "This is in the evening",
+            "date": "20190801",
+            "time": "22:30:00",
+            "color": "green",
+        },
+        {
+            "id": 32141431,
+            "description": "This is after lunch",
+            "date": "20190801",
+            "time": "15:00:00",
+            "color": "blue",
         },
     ];
 
