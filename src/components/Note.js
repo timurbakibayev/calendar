@@ -42,7 +42,12 @@ class _NoteComponent extends Component {
                 <div className="NoteDescription">{this.props.description}</div>
                 <Dialog open={this.state.open} onClose={this.handleClose.bind(this)} aria-labelledby="form-dialog-title">
                     <DialogTitle id="form-dialog-title">Edit</DialogTitle>
-                    <DialogContent>
+                    <DialogContent onKeyUp={(e)=> {
+                        if (e.keyCode === 13) {
+                            this.props.saveNote(this.state);
+                            this.setState({open: false});
+                        }
+                    }}>
                         <DialogContentText>
                             To edit this note, please enter the new description and time here.
                         </DialogContentText>

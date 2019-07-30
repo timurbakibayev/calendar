@@ -61,7 +61,12 @@ class _WeekComponent extends Component {
                 <Dialog open={this.state.open} onClose={this.handleClose.bind(this)}
                         aria-labelledby="form-dialog-title">
                     <DialogTitle id="form-dialog-title">Add Note</DialogTitle>
-                    <DialogContent>
+                    <DialogContent onKeyUp={(e)=> {
+                        if (e.keyCode === 13) {
+                            this.props.addNote(this.state);
+                            this.setState({open: false});
+                        }
+                    }}>
                         <DialogContentText>
                             To add a new note, please enter the description and time here.
                         </DialogContentText>

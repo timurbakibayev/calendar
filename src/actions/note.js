@@ -2,10 +2,6 @@ import * as actionTypes from '../actionTypes';
 import * as api from '../api/noteApi';
 
 export const refreshNote = (noteId) => async (dispatch, getState) => {
-    if (getState().note.isLoading) {
-        return Promise.resolve();
-    }
-
     dispatch({
         type: actionTypes.ACTION_NOTE_STARTED_LOADING,
         data: noteId,
@@ -39,9 +35,6 @@ export const refreshNote = (noteId) => async (dispatch, getState) => {
 };
 
 export const saveNote = (params) => async (dispatch, getState) => {
-    if (getState().note.isSaving) {
-        return Promise.resolve();
-    }
 
     dispatch({
         type: actionTypes.ACTION_NOTE_SAVED,
@@ -52,9 +45,6 @@ export const saveNote = (params) => async (dispatch, getState) => {
 };
 
 export const addNote = (params) => async (dispatch, getState) => {
-    if (getState().note.isSaving) {
-        return Promise.resolve();
-    }
 
     dispatch({
         type: actionTypes.ACTION_NOTE_ADDED,
@@ -65,10 +55,6 @@ export const addNote = (params) => async (dispatch, getState) => {
 };
 
 export const deleteNote = (params) => async (dispatch, getState) => {
-    if (getState().note.isSaving) {
-        return Promise.resolve();
-    }
-
     dispatch({
         type: actionTypes.ACTION_NOTE_DELETED,
         data: params,
