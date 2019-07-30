@@ -6,34 +6,52 @@ const defaultNotes = [
             "id": 232032,
             "description": "note1",
             "date": "20190730",
-            "time": "12:30:00",
+            "time": "12:30",
             "color": "red",
         },
         {
             "id": 3214135,
             "description": "This is in the morning",
             "date": "20190801",
-            "time": "10:15:00",
+            "time": "10:15",
             "color": "green",
         },
         {
             "id": 3214432,
             "description": "This is in the evening",
             "date": "20190801",
-            "time": "22:30:00",
+            "time": "22:30",
             "color": "green",
         },
         {
             "id": 32141431,
             "description": "This is after lunch",
             "date": "20190801",
-            "time": "15:00:00",
+            "time": "15:00",
             "color": "blue",
         },
     ];
 
 const notesListReducer = (state = defaultNotes, action) => {
     switch (action.type) {
+        case actions.ACTION_NOTE_SAVED:
+            return [...state.filter((note)=>note.id !== action.data.id), {
+                "id": action.data.id,
+                "description": action.data.description,
+                "time": action.data.time,
+                "date": action.data.date,
+                "color": action.data.color,
+            }];
+        case actions.ACTION_NOTE_DELETED:
+            return [...state.filter((note)=>note.id !== action.data.id)];
+        case actions.ACTION_NOTE_ADDED:
+            return [...state, {
+                "id": action.data.id,
+                "description": action.data.description,
+                "time": action.data.time,
+                "date": action.data.date,
+                "color": action.data.color,
+            }];
         case actions.ACTION_NOTES_LOADED:
             return action.data;
         case actions.ACTION_NOTE_LOADED:

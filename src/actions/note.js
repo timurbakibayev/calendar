@@ -44,31 +44,35 @@ export const saveNote = (params) => async (dispatch, getState) => {
     }
 
     dispatch({
-        type: actionTypes.ACTION_NOTE_SAVING
+        type: actionTypes.ACTION_NOTE_SAVED,
+        data: params,
     });
 
-    try {
-        const response = await api.saveNote(params);
-        const text = await response.text();
-        console.log("Note: trying to parse saved note...", response);
-        if (response.status === 201 || response.status === 200) {
-            dispatch({
-                type: actionTypes.ACTION_NOTE_SAVED,
-                data: JSON.parse(text)
-            });
-        } else {
-            dispatch({
-                type: actionTypes.ACTION_NOTE_FAILED_TO_SAVE,
-                data: JSON.parse(text)
-            })
-        }
-    } catch (error) {
-        console.log(actionTypes.ACTION_NOTE_FAILED_TO_SAVE);
-        dispatch({
-            type: actionTypes.ACTION_NOTE_FAILED_TO_SAVE,
-            data: error.message
-        });
+    return Promise.resolve();
+};
+
+export const addNote = (params) => async (dispatch, getState) => {
+    if (getState().note.isSaving) {
+        return Promise.resolve();
     }
+
+    dispatch({
+        type: actionTypes.ACTION_NOTE_ADDED,
+        data: params,
+    });
+
+    return Promise.resolve();
+};
+
+export const deleteNote = (params) => async (dispatch, getState) => {
+    if (getState().note.isSaving) {
+        return Promise.resolve();
+    }
+
+    dispatch({
+        type: actionTypes.ACTION_NOTE_DELETED,
+        data: params,
+    });
 
     return Promise.resolve();
 };

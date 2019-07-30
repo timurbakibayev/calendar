@@ -67,7 +67,7 @@ class _MainComponent extends Component {
 
         const weekDayNames = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
         const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September",
-            "October", "November", "December"]
+            "October", "November", "December"];
 
         const weeks = generateWeeks(this.props.notes, this.state.year, this.state.month);
 
